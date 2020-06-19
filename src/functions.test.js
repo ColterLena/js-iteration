@@ -26,8 +26,14 @@
  * }
  */
 
-// ...
-
+function yelling(array) {
+  const upperCased = []
+  array.forEach(function(arrayItem) {
+    const upperCase = arrayItem.toUpperCase()
+    upperCased.push(upperCase)
+  })
+  return upperCased
+}
 /**
  *
  * 2) Define a function named `doubleTrouble` that takes an array of
@@ -35,7 +41,14 @@
  * the numbers multiplied by 2
  */
 
-// ...
+function doubleTrouble(array) {
+  const doubledArray = []
+  array.forEach(function(arrayItem) {
+    const doubled = arrayItem * 2
+    doubledArray.push(doubled)
+  })
+  return doubledArray
+}
 
 /*
  * 3) Define a function stringyIndexes() that takes an array of
@@ -43,21 +56,46 @@
  * suffixed with " is at index X" where X is the index of the element
  */
 
-// ...
+function stringyIndexes(array) {
+  const arrayWithSuffix = []
+  array.forEach(function(arrayItem, index) {
+    const addSuffix = `${arrayItem} is at index ${[index]}`
+    arrayWithSuffix.push(addSuffix)
+  })
+  return arrayWithSuffix
+}
 
 /*
  * 4) Define a function onlyTheEvenSurvive that accepts an array of
  * numbers and returns only the elements that are even
  */
 
-// ...
+function onlyTheEvenSurvive(array) {
+  const arrayWithOnlyEvens = []
+  array.forEach(function(arrayItem) {
+    const arrayItemRemainder = arrayItem % 2
+    if (arrayItemRemainder === 0) {
+      arrayWithOnlyEvens.push(arrayItem)
+    }
+  })
+  return arrayWithOnlyEvens
+}
 
 /*
  * 5) Define a function onlyTheEvenIndexedSurvive that accepts an array of
  * numbers and returns only the elements at indexes that are even
  */
 
-// ...
+function onlyTheEvenIndexedSurvive(array) {
+  const arrayWithOnlyEvenIndexes = []
+  array.forEach(function(arrayItem, index) {
+    const arrayItemRemainder = [index] % 2
+    if (arrayItemRemainder === 0) {
+      arrayWithOnlyEvenIndexes.push(arrayItem)
+    }
+  })
+  return arrayWithOnlyEvenIndexes
+}
 
 /*
  * 6)  Define a function bestMoviesOfTheYear that accepts an array of
@@ -73,7 +111,18 @@
  * }
  */
 
-// ...
+function bestMoviesOfTheYear(movies, year) {
+  const namesOfBestMovies = []
+
+  const retrieveBestMovies = movies.filter(
+    arrayItem => arrayItem.score >= 90 && arrayItem.year == year
+  )
+  retrieveBestMovies.forEach(function(arrayItem) {
+    const getTheName = arrayItem.name
+    namesOfBestMovies.push(getTheName)
+  })
+  return namesOfBestMovies
+}
 
 /*
  * 7) Define a function everyoneIsOdd that accepts an array of
@@ -81,7 +130,21 @@
  * odd.
  */
 
-// ...
+function everyoneIsOdd(array) {
+  const arrayWithOnlyOdds = []
+
+  array.forEach(function(arrayItem) {
+    if (arrayItem % 2 != 0) {
+      arrayWithOnlyOdds.push(arrayItem)
+    }
+  })
+
+  if (array.length === arrayWithOnlyOdds.length) {
+    return true
+  } else {
+    return false
+  }
+}
 
 /*
  * 8) Define a function findTheNeedle that accepts an array of
@@ -89,7 +152,12 @@
  * `needle` inside
  */
 
-// ...
+function findTheNeedle(array) {
+  const stringWithNeedle = array.filter(arrayItem =>
+    arrayItem.includes('needle')
+  )
+  return stringWithNeedle[0]
+}
 
 /*
  * 9) Define a function findTheNeedleIndex that accepts an array of
@@ -97,7 +165,14 @@
  *  the word `needle` inside
  */
 
-// ...
+function findTheNeedleIndex(array) {
+  const stringWithNeedle = array.filter(arrayItem =>
+    arrayItem.includes('needle')
+  )
+  const locateTheIndex = array.indexOf(stringWithNeedle[0])
+
+  return locateTheIndex
+}
 
 /*
  *` 10)  Define a function someoneToLove that accepts an array of
@@ -105,7 +180,16 @@
  * four characters long
  */
 
-// ...
+function someoneToLove(array) {
+  const findTheFourLetterWords = array.filter(
+    arrayItem => arrayItem.length === 4
+  )
+  if (findTheFourLetterWords[0] == null) {
+    return false
+  } else {
+    return true
+  }
+}
 
 /*
  * 11) Define a function mapYourself that accepts an array of
@@ -116,7 +200,14 @@
  * So no using forEach, map, filter, reduce, etc.
  */
 
-// ...
+function mapYourself(array) {
+  const newArrayOfNumbers = []
+  for (let index = 0; index < array.length; index++) {
+    const newValue = array[index] * 2
+    newArrayOfNumbers.push(newValue)
+  }
+  return newArrayOfNumbers
+}
 
 /*
  * 12) Define a function filterYourself that accepts an
@@ -128,7 +219,15 @@
  * So no using forEach, map, filter, reduce, etc.
  */
 
-// ...
+function filterYourself(array) {
+  const newArrayOfNumbers = []
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] % 2 === 0) {
+      newArrayOfNumbers.push(array[index])
+    }
+  }
+  return newArrayOfNumbers
+}
 
 /*
  * 13) Define a function everyYourself that accepts an
@@ -140,7 +239,19 @@
  * So no using forEach, map, filter, reduce, etc.
  */
 
-// ...
+function everyYourself(array) {
+  const newArrayOfNumbers = []
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] % 2 === 0) {
+      newArrayOfNumbers.push(array[index])
+    }
+  }
+  if (newArrayOfNumbers.length === array.length) {
+    return true
+  } else {
+    return false
+  }
+}
 
 /**
  * NOTE: Don't modify anything below this line...
@@ -338,7 +449,8 @@ test('mapYourself()', t => {
   t.deepEqual(mapSecond, [18, 0, 2])
 })
 
-test('Function Check - filter yourself', t => ensureDefined(t, 'filterYourself'))
+test('Function Check - filter yourself', t =>
+  ensureDefined(t, 'filterYourself'))
 test('filterYourself()', t => {
   const original = Array.prototype.filter
 
