@@ -19,7 +19,7 @@ After completing this assignment, you should be able to:
 8. Commit and push your work to GitHub.
 9. Turn in the URL to your GitHub repo.
 
-## Explorer Mode
+## Requirements
 
 - All tests passing
 - No linter warnings
