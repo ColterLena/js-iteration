@@ -1,4 +1,4 @@
-# JavaScript Iteration
+# JavaScript Iteration: A JavaScript Coding Exercise
 
 ## Objectives
 
